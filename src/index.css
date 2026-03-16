@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 0 0% 97%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 15% 20%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 15% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 25 95% 53%;
+
+    --radius: 0.5rem;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --nav: 220 20% 22%;
+    --nav-foreground: 0 0% 100%;
+
+    --nav-secondary: 25 95% 53%;
+    --nav-secondary-foreground: 0 0% 100%;
+
+    --badge-sale: 0 84% 55%;
+    --badge-sale-foreground: 0 0% 100%;
+
+    --badge-new: 142 71% 45%;
+    --badge-new-foreground: 0 0% 100%;
+
+    --star: 45 93% 47%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 210 40% 98%;
+    --card: 220 20% 13%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 20% 13%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 220 15% 18%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 25 95% 53%;
+    --nav: 220 20% 8%;
+    --nav-foreground: 0 0% 100%;
+    --nav-secondary: 25 95% 53%;
+    --nav-secondary-foreground: 0 0% 100%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  .product-card {
+    @apply bg-card rounded-lg overflow-hidden shadow-sm border border-border transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  .product-card-image {
+    @apply relative overflow-hidden bg-secondary;
+  }
+  .product-card-image img {
+    @apply w-full h-full object-cover transition-transform duration-500;
+  }
+  .product-card:hover .product-card-image img {
+    @apply scale-110;
+  }
+  .btn-primary-cta {
+    @apply bg-primary text-primary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:brightness-110 hover:shadow-md active:scale-95;
+  }
+  .btn-secondary-cta {
+    @apply bg-card text-foreground font-semibold px-6 py-3 rounded-lg border-2 border-primary transition-all duration-200 hover:bg-primary hover:text-primary-foreground active:scale-95;
+  }
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-foreground;
+  }
+  .skeleton-loader {
+    @apply bg-muted animate-pulse rounded;
+  }
+  .nav-top {
+    @apply bg-nav text-nav-foreground;
+  }
+  .badge-sale {
+    @apply bg-[hsl(var(--badge-sale))] text-[hsl(var(--badge-sale-foreground))] text-xs font-bold px-2 py-0.5 rounded;
+  }
+  .badge-new {
+    @apply bg-[hsl(var(--badge-new))] text-[hsl(var(--badge-new-foreground))] text-xs font-bold px-2 py-0.5 rounded;
+  }
+  .star-rating {
+    color: hsl(var(--star));
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
